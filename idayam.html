@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html><head>
+	<title>ChickenChamberCounter</title>
+    
+	<link rel="stylesheet" type="text/css" href="style.css">
+    
+</head>
+<body>
+	
+	<!-- bagian header template -->
+	<header>
+		<h1 class="judul">Chicken Chamber Counter</h1>
+		
+	</header>
+	<!-- akhir bagian header template -->
+	
+	<div class="wrap">
+		<!-- bagian menu		 -->
+		<nav class="menu">
+			<ul>
+				<li>
+					<a href="ideayam.php">ID AYAM</a>
+				</li>
+				<li>
+					<a href="gps.php">GPS</a>
+				</li>
+				<li>
+					<a href="home.php">Home</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- akhir bagian menu -->
+ 
+		<!-- bagian sidebar website -->
+		<aside class="sidebar">
+			<div class="widget">
+				<h2>Fajar Prastya</h2>
+                <p>G74160020</p>
+				<p><img src ="https://pbs.twimg.com/media/EKxoqCvUYAAWC__?format=jpg&name=4096x4096" style="width:150px;height:150px;"></p>
+			</div>
+            
+            <div class="widget">
+				<h2>Yusuf Fadilah</h2>
+                <p>G74160030</p>
+				<p><img src="https://pbs.twimg.com/media/EKxqbxNU8AAe2LB?format=jpg&name=900x900" style="width:150px;height:150px;"></p>
+			</div>
+            
+            <div class="widget">
+				<h2>Muhammad Zulfiqar</h2>
+                <p>G74160060</p>
+				<p><img src="https://pbs.twimg.com/media/EKxp34gU8AEdx8H?format=jpg&name=900x900" style="width:150px;height:150px;"></p>
+			</div>
+            
+            <div class="widget">
+				<h2>Rigel Raimarda</h2>
+                <p>G74160062</p>
+				<p><img src="https://pbs.twimg.com/media/EKxqAtLU0AAkcjz?format=jpg&name=900x900" style="width:150px;height:150px;"></p>
+			</div>
+            
+            <div class="widget">
+				<h2>Iqbal Lafifa</h2>
+                <p>G74160081</p>
+				<p><img src="https://pbs.twimg.com/media/EKxp8aUVAAIboUG?format=jpg&name=900x900" style="width:150px;height:150px;"></p>
+			</div>
+            
+		</aside>
+		<!-- akhir bagian sidebar website -->
+ 
+		<!-- INI NANTI DIGANTI PHP -->
+		<div class="blog">
+         
+<?php
+
+$db_host = 'localhost';
+$db_user = 'root';
+$db_pass = 'raspberry';
+$db_name = 'dbayam';
+
+$conn = mysqli_connect('localhost','root','raspberry','dbayam');
+
+if (!$conn) {
+        die ('gagal terhubung dengan MySQL: ' . mysqli_connect_error());
+}
+
+$result = mysqli_query($conn,"SELECT * FROM warungmakan");
+echo "<table border=1>";
+while ($row = mysqli_fetch_array($result)) {
+ echo "<tr><td>" . $row['idayam']."</td><td>".$row['kondisi']."</td><td>".$row['waktu']."</td></tr>";
+}
+
+echo "</table>";
+
+?>
+	
+		</div>
+		<!-- akhir bagian konten Blog -->
+	</div>
+ 
+</body>
+</html>
